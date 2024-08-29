@@ -6,5 +6,6 @@ const validate = require("../middleware/validate");
 
 router.post("/create", RegisterValidator, validate, controllers.CreateUser);
 router.post("/Login", controllers.Login);
+router.put("/Update", controllers.UpdateUser);
 
 module.exports = router;

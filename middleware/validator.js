@@ -20,7 +20,7 @@ const RegisterValidator = [
     .isEmail()
     .withMessage("Invalid email format")
     .custom((value) => {
-      if (value && !value.endWith("@gmail.com")) {
+      if (value && !value.endsWith("@gmail.com")) {
         throw new Error("Email must be gmail.com");
       }
       return true;
