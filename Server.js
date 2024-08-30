@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const session = require("express-session");
-const passport = require("passport");
+// const session = require("express-session");
+// const passport = require("passport");
 const port = 8888;
 
 app.use(cors());
@@ -20,10 +20,10 @@ app.use(express.json());
 
 
 const userRoutes = require("./routes/user.routes");
-// const ProductRoutes = require("./routes/products.routes");
+const ProductRoutes = require("./routes/products.routes");
 
 app.use("/", userRoutes);
-// app.use("/", ProductRoutes);
+app.use("/", ProductRoutes);
 
 // app.use("/uploads", express.static("uploads"));
 
