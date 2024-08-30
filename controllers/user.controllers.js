@@ -92,7 +92,6 @@ exports.Login = async (req, res) => {
     });
   }
 };
-
 exports.UpdateUser = async (req, res) => {
   const { user_id } = req.params;
   const {
@@ -104,13 +103,15 @@ exports.UpdateUser = async (req, res) => {
     Password,
     Phone,
     Address,
-    Role,
+    Role, // อัปเดตบทบาท
   } = req.body;
+
   try {
     const user = await User.findOne({ where: { user_id: user_id } });
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
+
     const updateUser = {
       FirstName: FirstName || user.FirstName,
       LastName: LastName || user.LastName,
@@ -120,9 +121,10 @@ exports.UpdateUser = async (req, res) => {
       Password: Password ? await bcrypt.hash(Password, 10) : user.Password,
       Phone: Phone || user.Phone,
       Address: Address || user.Address,
-      Role: Role || user.Role,
+      Role: Role || user.Role, // อัปเดตบทบาทถ้ามีการส่งข้อมูลใหม่มา
     };
-    await User.update(updateUser);
+
+    await user.update(updateUser); // ใช้ `user.update` เพื่ออัปเดตข้อมูล
     return res.status(200).json(user);
   } catch (err) {
     console.error("Failed to update user", err.message);
