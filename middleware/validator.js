@@ -34,17 +34,30 @@ const RegisterValidator = [
   body("Role").notEmpty().withMessage("Role is required"),
 ];
 
-
 const ProductValidator = [
   body("seller_id").notEmpty().withMessage("seller_id is required"),
   body("name").notEmpty().withMessage("Name is required"),
   body("description").notEmpty().withMessage("Description is required"),
   body("starting_price").notEmpty().withMessage("Starting price is required"),
-  body("min_bid_increment").notEmpty().withMessage("Min bid increment is required"),
+  body("min_bid_increment")
+    .notEmpty()
+    .withMessage("Min bid increment is required"),
   body("min_sale_price").notEmpty().withMessage("Min sale price is required"),
-  body("auction_start_time").notEmpty().withMessage("Auction start time is required"),
-  body("auction_end_time").notEmpty().withMessage("Auction end time is required"),
+  body("auction_start_time")
+    .notEmpty()
+    .withMessage("Auction start time is required"),
+  body("auction_end_time")
+    .notEmpty()
+    .withMessage("Auction end time is required"),
   body("image").notEmpty().withMessage("Image is required"),
   body("video").notEmpty().withMessage("Video is required"),
-]
-module.exports = { RegisterValidator , ProductValidator };
+];
+
+const bidValidator = [
+  body("product_id").notEmpty().withMessage("product_id is required"),
+  body("bidder_id").notEmpty().withMessage("bidder_id is required"),
+  body("bid_amount").notEmpty().withMessage("bid_amount is required"),
+  body("bid_time").notEmpty().withMessage("bid_time is required"),
+  body("is_proxy_bid").notEmpty().withMessage("is_proxy_bid is required"),
+];
+module.exports = { RegisterValidator, ProductValidator, bidValidator };
