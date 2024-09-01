@@ -21,9 +21,11 @@ app.use(express.json());
 
 const userRoutes = require("./routes/user.routes");
 const ProductRoutes = require("./routes/products.routes");
+const bidRoutes = require("./routes/bid.routes");
 
 app.use("/", userRoutes);
 app.use("/", ProductRoutes);
+app.use("/bid", bidRoutes);
 
 // app.use("/uploads", express.static("uploads"));
 
