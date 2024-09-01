@@ -25,7 +25,7 @@ const bidRoutes = require("./routes/bid.routes");
 
 app.use("/", userRoutes);
 app.use("/", ProductRoutes);
-app.use("/bid", bidRoutes);
+app.use("/", bidRoutes);
 
 // app.use("/uploads", express.static("uploads"));
 
