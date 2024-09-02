@@ -89,7 +89,7 @@ exports.updateInvoice = async (req, res) => {
       { where: { invoice_id } }
     );
 
-    if (!updated) {
+    if (!updated[0]) {
       return res
         .status(404)
         .json({ message: "Invoice not found or not updated" });
