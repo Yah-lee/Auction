@@ -22,11 +22,14 @@ app.use(express.json());
 const userRoutes = require("./routes/user.routes");
 const ProductRoutes = require("./routes/products.routes");
 const bidRoutes = require("./routes/bid.routes");
+const SystemRoutes = require("./routes/system.routes");
+const invoiceRoutes = require("./routes/invoices.routes");
 
 app.use("/", userRoutes);
 app.use("/", ProductRoutes);
 app.use("/", bidRoutes);
-
+app.use("/", SystemRoutes);
+app.use("/", invoiceRoutes);
 // app.use("/uploads", express.static("uploads"));
 
 app.listen(port, () => {
