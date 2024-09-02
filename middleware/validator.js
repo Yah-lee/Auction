@@ -60,4 +60,10 @@ const bidValidator = [
   body("bid_time").notEmpty().withMessage("bid_time is required"),
   body("is_proxy_bid").notEmpty().withMessage("is_proxy_bid is required"),
 ];
-module.exports = { RegisterValidator, ProductValidator, bidValidator };
+
+const systemValidator = [
+  body("user_id").notEmpty().withMessage("user_id is required"),
+  body("action").notEmpty().withMessage("acton is required"),
+  body("timestamp").notEmpty().withMessage("timestamp is required"),
+];
+module.exports = { RegisterValidator, ProductValidator, bidValidator, systemValidator };
