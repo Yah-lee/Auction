@@ -66,4 +66,17 @@ const systemValidator = [
   body("action").notEmpty().withMessage("acton is required"),
   body("timestamp").notEmpty().withMessage("timestamp is required"),
 ];
-module.exports = { RegisterValidator, ProductValidator, bidValidator, systemValidator };
+const invoicesValidator = [
+  body("product_id").notEmpty().withMessage("product_id is required"),
+  body("winner_id").notEmpty().withMessage("Winner_is is required"),
+  body("seller_id").notEmpty().withMessage("seller_id is required"),
+  body("final_price").notEmpty().withMessage("final_price is required"),
+  body("payment_status").notEmpty().withMessage("payment_status is required"),
+];
+module.exports = {
+  RegisterValidator,
+  ProductValidator,
+  bidValidator,
+  systemValidator,
+  invoicesValidator,
+};
