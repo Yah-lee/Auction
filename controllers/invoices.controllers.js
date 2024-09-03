@@ -5,7 +5,6 @@ const User = require("../models/user.models");
 exports.createInvoice = async (req, res) => {
   const { product_id, winner_id, seller_id, final_price, payment_status } =
     req.body;
-
   try {
     const newInvoice = await Invoice.create({
       product_id,
@@ -13,15 +12,14 @@ exports.createInvoice = async (req, res) => {
       seller_id,
       final_price,
       payment_status,
-      created_at: new Date(),
-      updated_at: new Date(),
     });
-
-    return res
-      .status(201)
-      .json({ message: "Invoice created successfully", invoice: newInvoice });
+    return res.status(200).json(newInvoice);
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    console.error(error);
+    return res.status(500).json({
+      error: "Failed to create invoice",
+      details: error.message,
+    });
   }
 };
 

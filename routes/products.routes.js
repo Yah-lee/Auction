@@ -14,7 +14,7 @@ const { ProductValidator } = require('../middleware/validator');
 //   ]),
 //   productController.Products
 // );
-router.post("/products", ProductValidator, validate, productController.Products);
+router.post("/products", ProductValidator, validate, productController.create);
 router.get("/findAllProduct", productController.findAllProduct);
 
 

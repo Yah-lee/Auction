@@ -1,36 +1,25 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-// const session = require("express-session");
-// const passport = require("passport");
 const port = 8888;
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-
-// app.use(session({
-//   secret: 'your_secret_key',
-//   resave: false,
-//   saveUninitialized: true
-// }));
-
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-
+// Import routes
 const userRoutes = require("./routes/user.routes");
-const ProductRoutes = require("./routes/products.routes");
+const productRoutes = require("./routes/products.routes");
 const bidRoutes = require("./routes/bid.routes");
-const SystemRoutes = require("./routes/system.routes");
+const systemRoutes = require("./routes/system.routes");
 const invoiceRoutes = require("./routes/invoices.routes");
 
-app.use("/", userRoutes);
-app.use("/", ProductRoutes);
-app.use("/", bidRoutes);
-app.use("/", SystemRoutes);
-app.use("/", invoiceRoutes);
-// app.use("/uploads", express.static("uploads"));
+// Use routes with specific base paths
+app.use("/users", userRoutes);
+app.use("/products", productRoutes);
+app.use("/bids", bidRoutes);
+app.use("/system", systemRoutes);
+app.use("/invoices", invoiceRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

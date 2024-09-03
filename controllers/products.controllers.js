@@ -1,7 +1,7 @@
 const { error } = require("console");
 const Product = require("../models/products.models");
 
-exports.Products = async (req, res) => {
+exports.create = async (req, res) => {
   const {
     seller_id,
     name,
