@@ -13,13 +13,9 @@ exports.createInvoice = async (req, res) => {
       final_price,
       payment_status,
     });
-    return res.status(200).json(newInvoice);
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({
-      error: "Failed to create invoice",
-      details: error.message,
-    });
+    return res.status(201).json({ newInvoice });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
   }
 };
 

@@ -4,7 +4,7 @@ const controller = require("../controllers/invoices.controllers");
 const { invoicesValidator } = require("../middleware/validator");
 const validate = require("../middleware/validate");
 
-router.post("/invoices",  controller.createInvoice);
+router.post("/",  controller.createInvoice);
 
 // router.get("/invoices", controller.getAllInvoices);
 
