@@ -11,10 +11,13 @@ exports.create = async (req, res) => {
     min_sale_price,
     auction_start_time,
     auction_end_time,
+    image,
+    video,
   } = req.body;
 
-  const image = req.files["image"] ? req.files["image"][0].path : null;
-  const video = req.files["video"] ? req.files["video"][0].path : null;
+
+  // const image = req.files["image"] ? req.files["image"][0].path : null;
+  // const video = req.files["video"] ? req.files["video"][0].path : null;
 
   try {
     const newProduct = await Product.create({
