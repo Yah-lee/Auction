@@ -6,6 +6,8 @@ const validate = require("../middleware/validate");
 
 router.post("/",  controller.createInvoice);
 
+router.post("/", invoicesValidator, validate, controller.createInvoice);
+
 // router.get("/invoices", controller.getAllInvoices);
 
 // router.get("/invoices/:invoice_id", invoicesController.getInvoiceById);
