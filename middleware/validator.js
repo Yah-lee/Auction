@@ -73,10 +73,18 @@ const invoicesValidator = [
   body("final_price").notEmpty().withMessage("final_price is required"),
   body("payment_status").notEmpty().withMessage("payment_status is required"),
 ];
+const paymentsValidator = [
+  body("invoice_id").notEmpty().withMessage("Invoice_id is required"),
+  body("payment_method").notEmpty().withMessage("payment method is required"),
+  body("payment_amount").notEmpty().withMessage("payment amount is required"),
+  body("payment_time").notEmpty().withMessage("payment time is required"),
+  body("transaction_id").notEmpty().withMessage("transaction id is required"),
+];
 module.exports = {
   RegisterValidator,
   ProductValidator,
   bidValidator,
   systemValidator,
   invoicesValidator,
+  paymentsValidator,
 };

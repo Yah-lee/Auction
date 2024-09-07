@@ -41,4 +41,31 @@ const Payment = sequelize.define(
   }
 );
 
+Payment.belongsTo(Invoice, { foreignKey: "invoice_id" });
+
+Payment.findAllPayments = async () => {
+  return await Payment.findAll({
+    include: [
+      {
+        model: Invoice,
+        as: "Invoice",
+        attributes: ["invoice_id", "final_price", "payment_status"],
+      },
+    ],
+  });
+};
+
+Payment.findOnePayment = async (payment_id) => {
+  return await Payment.findOne({
+    where: { payment_id },
+    include: [
+      {
+        module: Invoice,
+        as: "Invoice",
+        attributes: ["invoice_is", "final_price", "payment_status"],
+      },
+    ],
+  });
+};
+
 module.exports = Payment;
