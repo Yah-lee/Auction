@@ -15,10 +15,14 @@ const systemRoutes = require("./routes/system.routes");
 const invoicesRoutes = require("./routes/invoices.routes");
 const paymentsRoutes = require("./routes/payments.routes");
 const ChatsRoutes = require("./routes/chats.routes");
+const authMiddleware = require("./middleware/auth");
 
 // Use routes with specific base paths
+app.use(authMiddleware)
+
 app.use("/users", userRoutes);
 app.use("/products", productRoutes);
+
 
 app.use("/", bidRoutes);
 app.use("/system", systemRoutes);

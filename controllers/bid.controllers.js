@@ -2,6 +2,9 @@ const { error } = require("console");
 const Bid = require("../models/bid.models");
 
 exports.createBid = async (req, res) => {
+
+  // console.log(req.user.user_id)
+
   const { product_id, bidder_id, bid_amount, bid_time, is_proxy_bid } =
     req.body;
   try {

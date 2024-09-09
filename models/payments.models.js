@@ -60,9 +60,9 @@ Payment.findOnePayment = async (payment_id) => {
     where: { payment_id },
     include: [
       {
-        module: Invoice,
+        model: Invoice,
         as: "Invoice",
-        attributes: ["invoice_is", "final_price", "payment_status"],
+        attributes: ["invoice_id", "final_price", "payment_status"],
       },
     ],
   });

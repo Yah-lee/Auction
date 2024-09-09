@@ -2,6 +2,7 @@ const { error } = require("console");
 const Product = require("../models/products.models");
 
 exports.create = async (req, res) => {
+  console.log(req.user_id)
   const {
     seller_id,
     name,
@@ -21,7 +22,7 @@ exports.create = async (req, res) => {
 
   try {
     const newProduct = await Product.create({
-      seller_id,
+      seller_id: 99998888,
       name,
       description,
       starting_price,
@@ -32,6 +33,8 @@ exports.create = async (req, res) => {
       image,
       video,
     });
+
+
     return res.status(200).json({ Product: newProduct });
   } catch (error) {
     return res.status(500).json({ error: error.message });
