@@ -19,8 +19,8 @@ const authMiddleware = require("./middleware/auth");
 
 // Public routes (no authentication required)
 app.use("/users", userRoutes);
-app.use("/", bidRoutes); // Assuming public bidding
-app.use("/system", systemRoutes);
+app.use("/", authMiddleware,bidRoutes); // Assuming public bidding
+app.use("/system", authMiddleware,systemRoutes);
 
 // Protected routes (authentication required)
 app.use("/products", authMiddleware, productRoutes);
