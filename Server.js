@@ -17,18 +17,16 @@ const paymentsRoutes = require("./routes/payments.routes");
 const ChatsRoutes = require("./routes/chats.routes");
 const authMiddleware = require("./middleware/auth");
 
-// Use routes with specific base paths
-app.use(authMiddleware)
-
+// Public routes (no authentication required)
 app.use("/users", userRoutes);
-app.use("/products", productRoutes);
-
-
-app.use("/", bidRoutes);
+app.use("/", bidRoutes); // Assuming public bidding
 app.use("/system", systemRoutes);
-app.use("/invoices", invoicesRoutes);
-app.use("/payments", paymentsRoutes);
-app.use("/chats", ChatsRoutes);
+
+// Protected routes (authentication required)
+app.use("/products", authMiddleware, productRoutes);
+app.use("/invoices", authMiddleware, invoicesRoutes);
+app.use("/payments", authMiddleware, paymentsRoutes);
+app.use("/chats", authMiddleware, ChatsRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
