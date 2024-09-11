@@ -4,7 +4,6 @@ const authMiddleware = (req, res, next) => {
   if (!userId) {
     return res.status(400).json({ error: "You do not have permission" });
   }
-
   try {
     var decoded = jwt.verify(userId, "Secret@");
     req.user_id = decoded.username;
@@ -13,5 +12,4 @@ const authMiddleware = (req, res, next) => {
   }
   next();
 };
-
 module.exports = authMiddleware;
