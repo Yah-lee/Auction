@@ -22,7 +22,7 @@ app.use("/users", userRoutes);
 
 // Protected routes (authentication required)
 app.use("/products", authMiddleware, productRoutes);
-app.use("/", authMiddleware, bidRoutes); // Assuming bid routes need authentication now
+app.use("/", authMiddleware, bidRoutes); 
 app.use("/system", authMiddleware, systemRoutes);
 app.use("/invoices", authMiddleware, invoicesRoutes);
 app.use("/payments", authMiddleware, paymentsRoutes);
