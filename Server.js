@@ -19,15 +19,14 @@ const authMiddleware = require("./middleware/auth");
 
 // Public routes (no authentication required)
 app.use("/users", userRoutes);
-app.use("/", authMiddleware,bidRoutes); // Assuming public bidding
-app.use("/system", authMiddleware,systemRoutes);
 
 // Protected routes (authentication required)
 app.use("/products", authMiddleware, productRoutes);
+app.use("/", authMiddleware, bidRoutes); // Assuming bid routes need authentication now
+app.use("/system", authMiddleware, systemRoutes);
 app.use("/invoices", authMiddleware, invoicesRoutes);
 app.use("/payments", authMiddleware, paymentsRoutes);
 app.use("/chats", authMiddleware, ChatsRoutes);
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
