@@ -5,14 +5,14 @@ const sequelize = new Sequelize("Auction", "root", "", {
   timezone: "+07:00",
 });
 
-// sequelize
-//   .sync()
-//   .then(() => {
-//     console.log("Table created successfully!");
-//   })
-//   .catch((err) => {
-//     console.log("Unable to create table:", err);
-//   });
+sequelize
+  .sync()
+  .then(() => {
+    console.log("Table created successfully!");
+  })
+  .catch((err) => {
+    console.log("Unable to create table:", err);
+  });
 // test new update
 sequelize
   .authenticate()
