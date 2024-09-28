@@ -13,7 +13,7 @@ sequelize
   .catch((err) => {
     console.log("Unable to create table:", err);
   });
-// test new update
+
 sequelize
   .authenticate()
   .then(() => {
