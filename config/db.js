@@ -1,26 +1,26 @@
-// const { Sequelize } = require("sequelize");
-// const sequelize = new Sequelize("Auction", "root", "", {
-//   host: "127.0.0.1",
-//   dialect: "mysql",
-//   timezone: "+07:00",
-// });
-
-// // sequelize
-// //   .sync()
-// //   .then(() => {
-// //     console.log("Table created successfully!");
-// //   })
-// //   .catch((err) => {
-// //     console.log("Unable to create table:", err);
-// //   });
+const { Sequelize } = require("sequelize");
+const sequelize = new Sequelize("Auction", "root", "", {
+  host: "127.0.0.1",
+  dialect: "mysql",
+  timezone: "+07:00",
+});
 
 // sequelize
-//   .authenticate()
+//   .sync()
 //   .then(() => {
-//     console.log("Database connection successful.");
+//     console.log("Table created successfully!");
 //   })
 //   .catch((err) => {
-//     console.error("Unable to connect to database:", err);
+//     console.log("Unable to create table:", err);
 //   });
 
-// module.exports = sequelize;
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Database connection successful.");
+  })
+  .catch((err) => {
+    console.error("Unable to connect to database:", err);
+  });
+
+module.exports = sequelize;
