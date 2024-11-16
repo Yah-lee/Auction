@@ -12,5 +12,4 @@ const chat = require("../models/chats.models");
 //   } catch (err) {
 //     return res.status(500).json({ error: err.message });
 //   }
-// };
-
+};
