@@ -3,7 +3,7 @@ const router = express.Router();
 const controllers = require("../controllers/user.controllers");
 const { RegisterValidator } = require("../middleware/validator");
 const validate = require("../middleware/validate");
-const rbacMiddleware = require("../middleware/rbacMiddleware");
+// const rbacMiddleware = require("../middleware/rbacMiddleware");
 
 router.post("/create", RegisterValidator, validate, controllers.CreateUser);
 

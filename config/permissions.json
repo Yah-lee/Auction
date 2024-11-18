@@ -1,6 +1,0 @@
-{
-    "admin": ["create_user", "update_user", "delete_user", "view_users"],
-    "seller": ["create_product", "update_product", "delete_product"],
-    "bidder": ["view_products", "place_bid"]
-  }
-  

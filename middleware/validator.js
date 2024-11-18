@@ -53,38 +53,7 @@ const ProductValidator = [
   body("video").notEmpty().withMessage("Video is required"),
 ];
 
-const bidValidator = [
-  body("product_id").notEmpty().withMessage("product_id is required"),
-  body("bidder_id").notEmpty().withMessage("bidder_id is required"),
-  body("bid_amount").notEmpty().withMessage("bid_amount is required"),
-  body("bid_time").notEmpty().withMessage("bid_time is required"),
-  body("is_proxy_bid").notEmpty().withMessage("is_proxy_bid is required"),
-];
-
-const systemValidator = [
-  body("user_id").notEmpty().withMessage("user_id is required"),
-  body("action").notEmpty().withMessage("acton is required"),
-  body("timestamp").notEmpty().withMessage("timestamp is required"),
-];
-const invoicesValidator = [
-  body("product_id").notEmpty().withMessage("product_id is required"),
-  body("winner_id").notEmpty().withMessage("Winner_is is required"),
-  body("seller_id").notEmpty().withMessage("seller_id is required"),
-  body("final_price").notEmpty().withMessage("final_price is required"),
-  body("payment_status").notEmpty().withMessage("payment_status is required"),
-];
-const paymentsValidator = [
-  body("invoice_id").notEmpty().withMessage("Invoice_id is required"),
-  body("payment_method").notEmpty().withMessage("payment method is required"),
-  body("payment_amount").notEmpty().withMessage("payment amount is required"),
-  body("payment_time").notEmpty().withMessage("payment time is required"),
-  body("transaction_id").notEmpty().withMessage("transaction id is required"),
-];
 module.exports = {
   RegisterValidator,
   ProductValidator,
-  bidValidator,
-  systemValidator,
-  invoicesValidator,
-  paymentsValidator,
 };
