@@ -2,7 +2,6 @@ const { error } = require("console");
 const Product = require("../models/products.models");
 
 exports.create = async (req, res) => {
-  // console.log(req.user_id)
   const {
     seller_id,
     name,
@@ -16,9 +15,6 @@ exports.create = async (req, res) => {
     video,
   } = req.body;
 
-
-  // const image = req.files["image"] ? req.files["image"][0].path : null;
-  // const video = req.files["video"] ? req.files["video"][0].path : null;
 
   try {
     const newProduct = await Product.create({
